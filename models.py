@@ -49,10 +49,10 @@ class DCGenerator(nn.Module):
         ##   FILL THIS IN: CREATE ARCHITECTURE   ##
         ###########################################
 
-        # self.deconv1 = deconv(...)
-        # self.deconv2 = deconv(...)
-        # self.deconv3 = deconv(...)
-        # self.deconv4 = deconv(...)
+        self.deconv1 = deconv(noise_size, conv_dim * 4, 4, stride=1, padding=0)
+        self.deconv2 = deconv(conv_dim * 4, conv_dim * 2, 4)
+        self.deconv3 = deconv(conv_dim * 2, conv_dim, 4)
+        self.deconv4 = deconv(conv_dim, 3, 4, batch_norm=False)
 
     def forward(self, z):
         """Generates an image given a sample of random noise.
