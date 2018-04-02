@@ -139,10 +139,10 @@ class DCDiscriminator(nn.Module):
         ##   FILL THIS IN: CREATE ARCHITECTURE   ##
         ###########################################
 
-        # self.conv1 = conv(...)
-        # self.conv2 = conv(...)
-        # self.conv3 = conv(...)
-        # self.conv4 = conv(...)
+        self.conv1 = conv(3, conv_dim, 4)
+        self.conv2 = conv(conv_dim, conv_dim * 2, 4)
+        self.conv3 = conv(conv_dim * 2, conv_dim * 4, 4)
+        self.conv4 = conv(conv_dim * 4, 1, 4, stride=1, padding=0, batch_norm=False)
 
     def forward(self, x):
 
